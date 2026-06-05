@@ -12,7 +12,7 @@ export default function SpinWheelSection({
   return (
     <Paper elevation={2} sx={{ p: 3 }}>
       <Typography variant="subtitle1" fontWeight="bold" mb={2}>
-        {t("spinWheelTitle", "Ruleta de tareas")}
+        {t("spinWheelTitle")}
       </Typography>
       <TaskWheel tasks={tasks} onSelect={onSelect} />
     </Paper>

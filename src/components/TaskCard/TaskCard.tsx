@@ -1,4 +1,5 @@
 import { Box, Card, CardContent, Chip, Typography } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 import { ITaskCardProps } from '../../utils/interfaces'
 
 function getDifficultyColor(difficulty: number): 'success' | 'info' | 'error' {
@@ -13,6 +14,8 @@ export default function TaskCard({
   status,
   isSelected,
 }: ITaskCardProps) {
+  const { t } = useTranslation()
+
   return (
     <Card
       variant="outlined"
@@ -27,7 +30,7 @@ export default function TaskCard({
             {title}
           </Typography>
           <Chip
-            label={`Dif. ${difficulty}`}
+            label={`${t('scoreAbbr')} ${difficulty}`}
             size="small"
             color={getDifficultyColor(difficulty)}
           />

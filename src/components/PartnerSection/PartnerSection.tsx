@@ -17,8 +17,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { sendPartnerRequest } from "../../db/queries";
 import { IPartnerSectionProps } from "../../utils/interfaces";
-
-type Step = "form" | "sent" | "error";
+import { Step } from "../../utils/types";
 
 export default function PartnerSection({
   soloMode,
@@ -64,7 +63,7 @@ export default function PartnerSection({
     <Paper elevation={2} sx={{ p: 3 }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2}>
         <Typography variant="subtitle1" fontWeight="bold">
-          {t("modeLabel", "Modo")}
+          {t("modeLabel")}
         </Typography>
         <ToggleButtonGroup
           value={soloMode ? "solo" : "partner"}
@@ -84,18 +83,18 @@ export default function PartnerSection({
           </Alert>
         ) : (
           <Button variant="outlined" fullWidth onClick={() => setOpen(true)}>
-            {t("invitePartner", "Invitar compañero")}
+            {t("invitePartner")}
           </Button>
         )
       )}
 
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="xs">
-        <DialogTitle>{t("invitePartnerTitle", "Invitar compañero")}</DialogTitle>
+        <DialogTitle>{t("invitePartnerTitle")}</DialogTitle>
         <DialogContent>
           {step === "form" && (
             <Stack spacing={2} mt={1}>
               <Typography variant="body2" color="text.secondary">
-                {t("invitePartnerDesc", "Ingresa el email de la cuenta de tu compañero. Recibirá una invitación y deberá aceptarla.")}
+                {t("invitePartnerDesc")}
               </Typography>
               <TextField
                 label={t("linkLabel")}
@@ -117,7 +116,7 @@ export default function PartnerSection({
           )}
           {step === "error" && (
             <Alert severity="error" sx={{ mt: 1 }}>
-              {t(errorKey, errorKey)}
+              {t(errorKey)}
             </Alert>
           )}
         </DialogContent>
@@ -125,7 +124,7 @@ export default function PartnerSection({
           {step === "form" && (
             <>
               <Button onClick={handleClose} disabled={loading}>
-                {t("cancel", "Cancelar")}
+                {t("cancel")}
               </Button>
               <Button
                 variant="contained"
@@ -133,17 +132,17 @@ export default function PartnerSection({
                 disabled={loading || !email.trim()}
                 startIcon={loading ? <CircularProgress size={16} /> : null}
               >
-                {t("sendInvite", "Enviar invitación")}
+                {t("sendInvite")}
               </Button>
             </>
           )}
           {(step === "sent" || step === "error") && (
             <>
               {step === "error" && (
-                <Button onClick={() => setStep("form")}>{t("retry", "Reintentar")}</Button>
+                <Button onClick={() => setStep("form")}>{t("retry")}</Button>
               )}
               <Button variant="contained" onClick={handleClose}>
-                {t("close", "Cerrar")}
+                {t("close")}
               </Button>
             </>
           )}

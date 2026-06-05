@@ -8,14 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
-
-interface CreateTaskFormProps {
-  taskTitle: string;
-  onTaskTitleChange: (title: string) => void;
-  difficulty: number;
-  onDifficultyChange: (d: number) => void;
-  onSubmit: () => void;
-}
+import { ICreateTaskFormProps } from "../../utils/interfaces";
 
 export default function CreateTaskForm({
   taskTitle,
@@ -23,7 +16,7 @@ export default function CreateTaskForm({
   difficulty,
   onDifficultyChange,
   onSubmit,
-}: CreateTaskFormProps) {
+}: ICreateTaskFormProps) {
   const { t } = useTranslation();
 
   return (

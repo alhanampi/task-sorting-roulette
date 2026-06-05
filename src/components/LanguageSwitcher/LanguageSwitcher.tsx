@@ -1,34 +1,21 @@
-import { ToggleButton, ToggleButtonGroup } from '@mui/material'
+import { FormControl, MenuItem, Select } from '@mui/material'
+import { ILanguageSwitcherProps } from '../../utils/interfaces'
+import { Language } from '../../utils/types'
 
-type Language = 'en' | 'es' | 'pt'
-
-interface LanguageOption {
-  code: Language
-  label: string
-}
-
-interface LanguageSwitcherProps {
-  language: Language
-  onChange: (language: Language) => void
-  options: readonly LanguageOption[]
-  label?: string
-}
-
-export default function LanguageSwitcher({ language, onChange, options }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ language, onChange, options }: ILanguageSwitcherProps) {
   return (
-    <ToggleButtonGroup
-      value={language}
-      exclusive
-      size="small"
-      onChange={(_, v: Language | null) => {
-        if (v !== null) onChange(v)
-      }}
-    >
-      {options.map(option => (
-        <ToggleButton key={option.code} value={option.code}>
-          {option.label}
-        </ToggleButton>
-      ))}
-    </ToggleButtonGroup>
+    <FormControl size="small">
+      <Select
+        value={language}
+        onChange={(e) => onChange(e.target.value as Language)}
+        sx={{ minWidth: 80 }}
+      >
+        {options.map(option => (
+          <MenuItem key={option.code} value={option.code}>
+            {option.label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   )
 }

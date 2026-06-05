@@ -89,3 +89,45 @@ export interface IAppHeaderProps {
   onSignIn: () => void;
   onSignUp: () => void;
 }
+
+export interface ILanguageOption {
+  code: Language;
+  label: string;
+}
+
+export interface ILanguageSwitcherProps {
+  language: Language;
+  onChange: (language: Language) => void;
+  options: readonly ILanguageOption[];
+  label?: string;
+}
+
+export interface IWheelCanvasProps {
+  segments: string[];
+  segColors: string[];
+  winningSegment?: string;
+  onFinished: (winner: string) => void;
+  primaryColor?: string;
+  contrastColor?: string;
+  buttonText?: string;
+  isOnlyOnce?: boolean;
+  size?: number;
+  upDuration?: number;
+  downDuration?: number;
+  fontFamily?: string;
+  fontSize?: string;
+  outlineWidth?: number;
+}
+
+export interface IStatsBarProps {
+  points: number;
+  pendingCount: number;
+}
+
+export interface ICreateTaskFormProps {
+  taskTitle: string;
+  onTaskTitleChange: (title: string) => void;
+  difficulty: number;
+  onDifficultyChange: (d: number) => void;
+  onSubmit: () => void;
+}

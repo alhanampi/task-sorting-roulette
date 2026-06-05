@@ -1,21 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
-interface WheelCanvasProps {
-  segments: string[];
-  segColors: string[];
-  winningSegment?: string;
-  onFinished: (winner: string) => void;
-  primaryColor?: string;
-  contrastColor?: string;
-  buttonText?: string;
-  isOnlyOnce?: boolean;
-  size?: number;
-  upDuration?: number;
-  downDuration?: number;
-  fontFamily?: string;
-  fontSize?: string;
-  outlineWidth?: number;
-}
+import { IWheelCanvasProps } from "../../utils/interfaces";
 
 function wrapText(
   ctx: CanvasRenderingContext2D,
@@ -53,7 +37,7 @@ export default function WheelCanvas({
   fontFamily = "Arial, sans-serif",
   fontSize = "1em",
   outlineWidth = 10,
-}: WheelCanvasProps) {
+}: IWheelCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isFinished, setIsFinished] = useState(false);
 

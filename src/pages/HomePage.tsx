@@ -257,7 +257,7 @@ export default function HomePage() {
       const next = pendingRequests.find(r => r.id !== respondingRequest.id);
       setRespondingRequest(next ?? null);
     } catch {
-      setMessage(t("genericError", "Error al responder la solicitud"));
+      setMessage(t("genericError"));
     }
   };
 
@@ -308,11 +308,11 @@ export default function HomePage() {
               severity="info"
               action={
                 <Button color="inherit" size="small" onClick={() => openSignUp()}>
-                  {t("createAccount", "Crear cuenta")}
+                  {t("createAccount")}
                 </Button>
               }
             >
-              {t("guestModeNotice", "Estás en modo invitado. Las tareas se guardan localmente en este dispositivo.")}
+              {t("guestModeNotice")}
             </Alert>
 
             <CreateTaskForm
@@ -437,7 +437,7 @@ export default function HomePage() {
       </Container>
 
       <Dialog open={!!respondingRequest} maxWidth="xs" fullWidth>
-        <DialogTitle>{t("partnerRequestTitle", "Solicitud de compañero")}</DialogTitle>
+        <DialogTitle>{t("partnerRequestTitle")}</DialogTitle>
         <DialogContent>
           <Typography variant="body1">
             {t("partnerRequestDesc", {
@@ -448,10 +448,10 @@ export default function HomePage() {
         </DialogContent>
         <DialogActions>
           <Button color="error" onClick={() => handlePartnerRequestRespond("rejected")}>
-            {t("reject", "Rechazar")}
+            {t("reject")}
           </Button>
           <Button variant="contained" onClick={() => handlePartnerRequestRespond("accepted")}>
-            {t("accept", "Aceptar")}
+            {t("accept")}
           </Button>
         </DialogActions>
       </Dialog>

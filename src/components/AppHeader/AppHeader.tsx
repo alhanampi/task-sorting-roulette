@@ -2,7 +2,7 @@ import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { IAppHeaderProps } from "../../utils/interfaces";
-import { languageOptions } from "../../utils/types";
+import { languageOptions } from "../../utils/constants";
 
 export default function AppHeader({
   isSignedIn,

@@ -1,12 +1,8 @@
 import { Box, Paper, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { IStatsBarProps } from "../../utils/interfaces";
 
-interface StatsBarProps {
-  points: number;
-  pendingCount: number;
-}
-
-export default function StatsBar({ points, pendingCount }: StatsBarProps) {
+export default function StatsBar({ points, pendingCount }: IStatsBarProps) {
   const { t } = useTranslation();
 
   return (
