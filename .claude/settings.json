@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Bash(*)",
+      "Bash(npm uninstall *)",
+      "PowerShell(*)",
+      "PowerShell(npm uninstall *)"
+    ]
+  }
+}
